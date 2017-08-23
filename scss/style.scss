@@ -1,0 +1,130 @@
+
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+@mixin font {
+    font-family: 'Press Start 2P', cursive;
+}
+
+@mixin centered-text {
+    @include font;
+    text-align: center;
+}
+
+body {
+    color: #fff;
+    background-color: black;
+  font-family: 'VT323', monospace;
+}
+
+#title {
+    @include centered-text;
+}
+
+#subtitle {
+    @include centered-text;
+}
+
+#world {
+    margin: 0 auto;
+}
+
+#legend {
+    display: inline-block;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 4px;
+    border-color: #fff;
+    background-color: black;
+    padding: 10px;
+}
+
+.legendItem {
+    margin-right: 10px;
+}
+
+$legendCellWidth: 20px;
+.legendCell {
+    width: $legendCellWidth;
+    height: 20px;
+}
+
+.legendDesc {
+    margin-left: $legendCellWidth + 10px;
+}
+
+$border-width: 1px;
+$l: 20;
+$cell-width: $l - $border-width * 2;
+$cell-height: $l - $border-width * 2;
+
+.nonLastCell {
+    float: left;
+}
+
+// a cell can be: 'player', 'wall', 'empty', 'weapon', 'enemy', 'health', 'hole'
+.Empty {
+    background-color: white;
+}
+
+.Wall {
+    background-color: rgb(50, 50, 50);
+}
+
+.Player {
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/308710/good_guy.png');
+}
+
+.Enemy {
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/308710/Baddy.png');
+}
+
+.Boss {
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/308710/big_boss.png');
+}
+
+.Health {
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/308710/Health.png');
+}
+
+.Weapon {
+     background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/308710/Sword.png');
+}
+
+.Hole {
+    background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/308710/Stairs.png');
+}
+
+.nonVisible {
+    background-color: black;
+}
+
+@mixin border($width, $rad) {
+    border: $width solid;
+    border-radius: $rad;
+}
+
+@mixin box() {
+    float: left;
+    margin: 5px;
+    padding: 3px;
+}
+
+.btn {
+    font: inherit;
+    background: inherit;
+    color: inherit;
+    @include border(2px, 4px);
+    @include box();
+}
+
+.textBox {
+    display: inline-block;
+    @include border(2px, 4px);
+    @include box();
+}
